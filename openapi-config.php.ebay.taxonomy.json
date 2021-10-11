@@ -1,0 +1,14 @@
+{
+  "packageName": "sdk-ebay-rest-taxonomy",
+  "composerVendorName": "macropage",
+  "composerProjectName": "sdk-ebay-rest-taxonomy",
+  "artifactVersion": "2.3.2",
+  "invokerPackage": "macropage\\SDKs\\ebay\\rest\\taxonomy",
+  "modelPackage": "Model",
+  "apiPackage": "API",
+  "variableNamingConvention": "camelCase",
+  "srcBasePath": "src",
+  "gitUserId": "macropage",
+  "gitRepoId": "sdk-ebay-rest-taxonomy",
+  "validateSpec": false
+}
