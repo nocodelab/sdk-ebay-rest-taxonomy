@@ -21,6 +21,8 @@ docs/Model/CompatibilityProperty.md
 docs/Model/CompatibilityPropertyValue.md
 docs/Model/Error.md
 docs/Model/ErrorParameter.md
+docs/Model/ExpiredCategories.md
+docs/Model/ExpiredCategory.md
 docs/Model/GetCategoriesAspectResponse.md
 docs/Model/GetCompatibilityMetadataResponse.md
 docs/Model/GetCompatibilityPropertyValuesResponse.md
@@ -49,6 +51,8 @@ src/Model/CompatibilityProperty.php
 src/Model/CompatibilityPropertyValue.php
 src/Model/Error.php
 src/Model/ErrorParameter.php
+src/Model/ExpiredCategories.php
+src/Model/ExpiredCategory.php
 src/Model/GetCategoriesAspectResponse.php
 src/Model/GetCompatibilityMetadataResponse.php
 src/Model/GetCompatibilityPropertyValuesResponse.php
@@ -56,3 +60,5 @@ src/Model/ModelInterface.php
 src/Model/RelevanceIndicator.php
 src/Model/ValueConstraint.php
 src/ObjectSerializer.php
+test/Model/ExpiredCategoriesTest.php
+test/Model/ExpiredCategoryTest.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * AspectValue
+ * ExpiredCategories
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \macropage\SDKs\ebay\rest\taxonomy\ObjectSerializer;
 
 /**
- * AspectValue Class Doc Comment
+ * ExpiredCategories Class Doc Comment
  *
  * @category Class
- * @description This type contains a valid value for an aspect, along with any constraints on the occurrence of that value.
+ * @description This type is used by the &lt;b&gt;getExpiredCategories&lt;/b&gt; response to indicate any eBay leaf categories in the specified category tree that have expired and the currently active leaf categories that have replaced them.
  * @package  macropage\SDKs\ebay\rest\taxonomy
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExpiredCategories implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'AspectValue';
+    protected static $openAPIModelName = 'ExpiredCategories';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'localizedValue' => 'string',
-        'valueConstraints' => '\macropage\SDKs\ebay\rest\taxonomy\Model\ValueConstraint[]'
+        'expiredCategories' => '\macropage\SDKs\ebay\rest\taxonomy\Model\ExpiredCategory[]'
     ];
 
     /**
@@ -70,8 +69,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'localizedValue' => null,
-        'valueConstraints' => null
+        'expiredCategories' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'localizedValue' => false,
-        'valueConstraints' => false
+        'expiredCategories' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'localizedValue' => 'localizedValue',
-        'valueConstraints' => 'valueConstraints'
+        'expiredCategories' => 'expiredCategories'
     ];
 
     /**
@@ -180,8 +176,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'localizedValue' => 'setLocalizedValue',
-        'valueConstraints' => 'setValueConstraints'
+        'expiredCategories' => 'setExpiredCategories'
     ];
 
     /**
@@ -190,8 +185,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'localizedValue' => 'getLocalizedValue',
-        'valueConstraints' => 'getValueConstraints'
+        'expiredCategories' => 'getExpiredCategories'
     ];
 
     /**
@@ -251,8 +245,7 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('localizedValue', $data ?? [], null);
-        $this->setIfExists('valueConstraints', $data ?? [], null);
+        $this->setIfExists('expiredCategories', $data ?? [], null);
     }
 
     /**
@@ -298,55 +291,28 @@ class AspectValue implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets localizedValue
+     * Gets expiredCategories
      *
-     * @return string|null
+     * @return \macropage\SDKs\ebay\rest\taxonomy\Model\ExpiredCategory[]|null
      */
-    public function getLocalizedValue()
+    public function getExpiredCategories()
     {
-        return $this->container['localizedValue'];
+        return $this->container['expiredCategories'];
     }
 
     /**
-     * Sets localizedValue
+     * Sets expiredCategories
      *
-     * @param string|null $localizedValue The localized value of this aspect.<br><br>          <span class=\"tablenote\"> <strong>Note:</strong> This value is always localized for the specified marketplace. </span>
+     * @param \macropage\SDKs\ebay\rest\taxonomy\Model\ExpiredCategory[]|null $expiredCategories An array of expired category ID(s) for the requested category tree, and the currently active category ID(s) that have replaced them.
      *
      * @return self
      */
-    public function setLocalizedValue($localizedValue)
+    public function setExpiredCategories($expiredCategories)
     {
-        if (is_null($localizedValue)) {
-            throw new \InvalidArgumentException('non-nullable localizedValue cannot be null');
+        if (is_null($expiredCategories)) {
+            throw new \InvalidArgumentException('non-nullable expiredCategories cannot be null');
         }
-        $this->container['localizedValue'] = $localizedValue;
-
-        return $this;
-    }
-
-    /**
-     * Gets valueConstraints
-     *
-     * @return \macropage\SDKs\ebay\rest\taxonomy\Model\ValueConstraint[]|null
-     */
-    public function getValueConstraints()
-    {
-        return $this->container['valueConstraints'];
-    }
-
-    /**
-     * Sets valueConstraints
-     *
-     * @param \macropage\SDKs\ebay\rest\taxonomy\Model\ValueConstraint[]|null $valueConstraints <i>Not returned if</i> the value of the <b>localizedValue</b> field can always be selected for this aspect of the specified category.<br><br>Contains a list of the dependencies that identify when the value of the <b>localizedValue</b> field is available for the current aspect. Each dependency specifies the values of another aspect of the same category (a <i>control</i> aspect), for which the current value of the current aspect can also be selected by the seller. <br><br>          <b>Example:</b> A shirt is available in three sizes and three colors, but only the Small and Medium sizes come in Green. Thus for the Color aspect, the value Green is constrained by its dependency on Size (the control aspect). Only when the Size aspect value is Small or Medium, can the Color aspect value of Green be selected by the seller.
-     *
-     * @return self
-     */
-    public function setValueConstraints($valueConstraints)
-    {
-        if (is_null($valueConstraints)) {
-            throw new \InvalidArgumentException('non-nullable valueConstraints cannot be null');
-        }
-        $this->container['valueConstraints'] = $valueConstraints;
+        $this->container['expiredCategories'] = $expiredCategories;
 
         return $this;
     }
